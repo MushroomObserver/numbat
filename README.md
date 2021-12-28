@@ -16,6 +16,23 @@ I tried switching to npm and loading yarn through that, but
 it still complaining about webpacker which may or may not be
 related.
 
+Trying to run webpacker:install
+Tried getting a simple project running from scratch so I could generate
+a webpacker.yml to use, but failed at that.  Failures included a bus error.
+
+Along the way switched to Ruby 2.6.8.
+
+Ended up doing a find for webpacker.yml and found:
+rails/vendor/bundle/ruby/2.6.0/gems/webpacker-4.3.0/test/test_app/config/webpacker.yml
+which I copies to rails/config and it seems to be working.
+
+The next problem is with mysql2:
+
+Mysql2::Error::ConnectionError (Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2))
+
+which I remember digging into a bit yesterday.  Not sure what's causing that yet.
+
+
 In theory you should be able to do:
 
     docker-compose build
