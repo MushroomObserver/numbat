@@ -26,12 +26,13 @@ Ended up doing a find for webpacker.yml and found:
 rails/vendor/bundle/ruby/2.6.0/gems/webpacker-4.3.0/test/test_app/config/webpacker.yml
 which I copies to rails/config and it seems to be working.
 
-The next problem is with mysql2:
+Had to replace 'localhost' with 'db' rails/config/database.yml.
 
-Mysql2::Error::ConnectionError (Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2))
+Was able to switch to Rails 5.2.6 pretty easily.
 
-which I remember digging into a bit yesterday.  Not sure what's causing that yet.
-
+Tried to build with the MO Gemfile and Gemfile.lock and ran into an issue
+with python being required to build libv8.  Eventually figured out that you
+can only install python using apt-get if you first do an `apt-get update`.
 
 In theory you should be able to do:
 
